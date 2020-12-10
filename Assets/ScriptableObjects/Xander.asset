@@ -15,6 +15,6 @@ MonoBehaviour:
   Name: Xander
   avatar: {fileID: 2800000, guid: d90f46aef1378de42b8487c0aafc9e31, type: 3}
   Title: 
-  Population: 0
-  Range: 0
-  pushRange: 0
+  Population: 1200
+  Range: 9
+  pushRange: 7
