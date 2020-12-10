@@ -7,7 +7,7 @@ struct MeshProperties {
 
 RWStructuredBuffer<MeshProperties> _Properties;
 float3 _PusherPosition;
-
+float3 _PusherPosition2;
 
 [numthreads(64,1,1)]
 void PushKernel (uint3 id : SV_DispatchThreadID) {
