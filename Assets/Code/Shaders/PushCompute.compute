@@ -1,0 +1,35 @@
+﻿#pragma kernel PushKernel
+//https://toqoz.fyi/thousands-of-meshes.html
+struct MeshProperties {
+    float4x4 mat;
+    float4 color;
+};
+
+RWStructuredBuffer<MeshProperties> _Properties;
+float3 _PusherPosition;
+
+
+[numthreads(64,1,1)]
+void PushKernel (uint3 id : SV_DispatchThreadID) {
+    float4x4 mat = _Properties[id.x].mat;
+
+    //in the transform, the position is the last column
+    float3 position = float3(mat[0][3], mat[1][3], mat[2][3]);
+
+    float dist = distance(position, _PusherPosition);
+
+    dist = 5.0 - clamp(0.00, 5.0, dist);
+
+    float3 push = normalize(position - _PusherPosition) * dist;
+
+
+    float4x4 translation = float4x4(
+        1, 0, 0, push.x,
+        0, 1, 0, push.y,
+        0, 0, 1, push.z,
+        0, 0, 0, 1
+    );
+
+    //Apply translation to the existing matrix, which will be read in the shader
+    _Properties[id.x].mat = mul(translation,mat);
+}
