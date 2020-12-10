@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48f89ff4e77e7904fbd58bc15ec93214, type: 3}
-  m_Name: Xander
+  m_Name: Jason
   m_EditorClassIdentifier: 
-  Name: Xander
-  avatar: {fileID: 2800000, guid: d90f46aef1378de42b8487c0aafc9e31, type: 3}
+  Name: Jason
+  avatar: {fileID: 0}
   Title: 
-  Population: 0
-  Range: 0
-  pushRange: 0
+  Population: 750000
+  Range: 20
+  pushRange: 7

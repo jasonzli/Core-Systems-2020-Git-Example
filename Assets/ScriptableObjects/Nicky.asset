@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f89ff4e77e7904fbd58bc15ec93214, type: 3}
   m_Name: Nicky
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Nicky
   avatar: {fileID: 0}
-  Title: 
+  Title: Cool Person
+  Population: 0
+  Range: 0
+  pushRange: 0
