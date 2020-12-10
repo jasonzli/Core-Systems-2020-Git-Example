@@ -142,7 +142,6 @@ public class DrawInstancedIndirectDemo : MonoBehaviour
     
     private void GPUPushKernel(){
         pushShader.SetFloat("_pushRange", pushRange);
-        pushShader.SetFloat("_pushRange", pushRange);
         pushShader.SetVector("_PusherPosition",pusher.position);
         pushShader.Dispatch(kernel, Mathf.CeilToInt(population/64f), 1,1);
     }

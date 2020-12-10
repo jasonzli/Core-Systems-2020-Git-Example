@@ -475,6 +475,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   population: 500000
   range: 10
+  pushRange: 0
+  character: {fileID: 11400000, guid: 302403743d6800e4f991996e69c175be, type: 2}
   material: {fileID: 2100000, guid: 27ad390b597192d40a1f9a6e58ad0d31, type: 2}
   pushShader: {fileID: 7200000, guid: 37cc3b094c2317e4cb683a4d470b21db, type: 3}
   pusher: {fileID: 211837452}
