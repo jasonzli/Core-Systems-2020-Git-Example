@@ -18,7 +18,8 @@ void PushKernel (uint3 id : SV_DispatchThreadID) {
 
     float dist = distance(position, _PusherPosition);
 
-    dist = 5.0 - clamp(0.00, 5.0, dist);
+
+    dist = 10.0 - clamp(0.0, 10.0, dist);
 
     float3 push = normalize(position - _PusherPosition) * dist;
 
