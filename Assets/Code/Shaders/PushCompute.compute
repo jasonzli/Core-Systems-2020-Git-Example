@@ -15,6 +15,7 @@ RWStructuredBuffer<MeshProperties> _Properties;
 
 //spacing for no reason
 float3 _PusherPosition;
+float3 _PusherPosition2;
 
 float pushRange;
 
