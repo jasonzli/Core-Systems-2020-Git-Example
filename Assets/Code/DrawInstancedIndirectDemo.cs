@@ -6,7 +6,12 @@ public class DrawInstancedIndirectDemo : MonoBehaviour
 {
     [Range(64, 1000000)]
     public int population;
+    [Range(1f, 20f)]
     public float range;
+    [Range(1f, 10f)]
+    public float pushRange;
+
+    public CharacterSO character;
 
     public Material material;
     public ComputeShader pushShader;
@@ -56,7 +61,7 @@ public class DrawInstancedIndirectDemo : MonoBehaviour
         args[3] = (uint) mesh.GetBaseVertex(0);
         argsBuffer = new ComputeBuffer( 1, args.Length * sizeof(uint), ComputeBufferType.IndirectArguments);
         argsBuffer.SetData(args);
-
+        
         //Initialize buffer with the given population
         MeshProperties[] properties = new MeshProperties[population];
         for (int i = 0; i < population; i++){
@@ -122,6 +127,9 @@ public class DrawInstancedIndirectDemo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        population = character.Population;
+        range = character.Range;
+        pushRange = character.pushRange;
         Setup();
     }
 
@@ -130,11 +138,11 @@ public class DrawInstancedIndirectDemo : MonoBehaviour
     {
         GPUPushKernel();
         Graphics.DrawMeshInstancedIndirect(mesh, 0, material, bounds, argsBuffer);
-
-
     }
     
     private void GPUPushKernel(){
+        pushShader.SetFloat("_pushRange", pushRange);
+        pushShader.SetFloat("_pushRange", pushRange);
         pushShader.SetVector("_PusherPosition",pusher.position);
         pushShader.Dispatch(kernel, Mathf.CeilToInt(population/64f), 1,1);
     }
