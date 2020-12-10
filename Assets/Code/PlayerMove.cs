@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
+    // demo comment
+    
     public int speed = 4;
     public int jumpForce = 800;
 
@@ -38,17 +40,4 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    public void PausePlayer(bool pause)
-    {
-        isPaused = pause;
-
-        if (isPaused)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
-    }
 }
