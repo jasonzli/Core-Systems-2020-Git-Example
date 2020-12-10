@@ -8,4 +8,7 @@ public class CharacterSO : ScriptableObject {
     public string Name;
     public Texture2D avatar;
     public string Title;
+    public int Population;
+    public int Range;
+    public float pushRange;
 }

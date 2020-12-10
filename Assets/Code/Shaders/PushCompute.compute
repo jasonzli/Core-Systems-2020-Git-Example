@@ -5,9 +5,18 @@ struct MeshProperties {
     float4 color;
 };
 
+
+
+
+
+///This should conflict with john's change
 RWStructuredBuffer<MeshProperties> _Properties;
+
+
+//spacing for no reason
 float3 _PusherPosition;
 
+float pushRange;
 
 [numthreads(64,1,1)]
 void PushKernel (uint3 id : SV_DispatchThreadID) {
@@ -19,7 +28,7 @@ void PushKernel (uint3 id : SV_DispatchThreadID) {
     float dist = distance(position, _PusherPosition);
 
 
-    dist = 10.0 - clamp(0.0, 10.0, dist);
+    dist = pushRange - clamp(0.0, pushRange, dist);
 
     float3 push = normalize(position - _PusherPosition) * dist;
 
